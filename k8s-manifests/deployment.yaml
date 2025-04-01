@@ -2,7 +2,6 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: pyfastapi-hello-app
-  namespace: app-deploy-demo
   labels:
     app: pyfastapi-hello-app
     app.kubernetes.io/name: pyfastapi-hello-app
