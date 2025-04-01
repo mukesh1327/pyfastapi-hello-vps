@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: pyfastapi-hello-app
+  namespace: app-deploy-demo
+  labels:
+    app: pyfastapi-hello-app
+    app.kubernetes.io/name: pyfastapi-hello-app
+    app.kubernetes.io/part-of: python-apps
+    app.openshift.io/runtime: python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pyfastapi-hello-app
+  template:
+    metadata:
+      labels:
+        app: pyfastapi-hello-app
+        deployment: pyfastapi-hello-app
+      annotations:
+    spec:
+      containers:
+        - name: pyfastapi-hello-app
+          image: 'quay.io/mukeshs1306/pyfastapi-hello:v1'
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+          env:
+            - name: APP_TITLE
+              valueFrom:
+                secretKeyRef:
+                  name: pyfastapi-hello-app
+                  key: APP_TITLE
+          resources: {}
