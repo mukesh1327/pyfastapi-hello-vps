@@ -9,10 +9,10 @@ metadata:
     app.openshift.io/runtime: python
 spec:
   ports:
-    - name: 8000-tcp
+    - name: 9002-tcp
       protocol: TCP
-      port: 8000
-      targetPort: 8000
+      port: 9002
+      targetPort: 9002
   type: ClusterIP
   selector:
     app: pyfastapi-hello-app

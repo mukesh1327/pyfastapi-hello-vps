@@ -14,7 +14,7 @@ spec:
     name: pyfastapi-hello-app
     weight: 100
   port:
-    targetPort: 8000-tcp
+    targetPort: 9002-tcp
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect

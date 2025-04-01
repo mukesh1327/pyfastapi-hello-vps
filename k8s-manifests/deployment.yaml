@@ -22,9 +22,9 @@ spec:
     spec:
       containers:
         - name: pyfastapi-hello-app
-          image: 'quay.io/mukeshs1306/pyfastapi-hello:v1'
+          image: 'quay.io/mukeshs1306/pyfastapi-hello:latest'
           ports:
-            - containerPort: 8000
+            - containerPort: 9002
               protocol: TCP
           env:
             - name: APP_TITLE

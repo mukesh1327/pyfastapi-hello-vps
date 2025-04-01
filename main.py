@@ -17,11 +17,7 @@ IMAGE_URL = "/images/noventiq-vp.png"  # Make sure this path matches the actual 
 # Read APP_TITLE from system env or .env file (system env takes priority)
 APP_TITLE = os.getenv("APP_TITLE", "Default Title")
 
-@app.get("/hello")
-async def hello_world():
-    return {"message": "Hello, World!"}
-
-@app.get("/vpsdemo", response_class=HTMLResponse)
+@app.get("/vps-welcome", response_class=HTMLResponse)
 async def get_image_html():
     html_content = f"""
     <html>
@@ -34,3 +30,7 @@ async def get_image_html():
     </html>
     """
     return HTMLResponse(content=html_content)
+
+@app.get("/vps-welcome/hello")
+async def hello_world():
+    return {"message": "Hello, World!"}
